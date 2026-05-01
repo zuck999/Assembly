@@ -4,33 +4,6 @@ This project explains how to interface directly with the Linux Kernel using Asse
 
 ---
 
-## The Code
-```nasm
-global _start ; this is start point
-
-section .text ; text section where code is written
-
-_start:  ;code start here
-    ; --- PRINT HELLO WORLD ---
-    mov rax, 1        ; System call number for 'write'
-    mov rdi, 1        ; File descriptor 1 (stdout/terminal)
-    mov rsi, hello    ; Memory address of our string
-    mov rdx, 11       ; Number of bytes to write
-    syscall           ; Transfer control to the kernel
-
-    ; --- EXIT PROGRAM ---
-    mov rax, 60       ; System call number for 'exit'
-    mov rdi, 0        ; Return status 0 (no errors)
-    syscall           ; Transfer control to the kernel
-
-section .data ; this is where variable are made 
-    hello: db "hello world"  ;name: (type(default byte)) " string here"
-
-
-
-
-#########################################################
-
 
 
 
@@ -59,3 +32,32 @@ mov rdi, 1        ; 1st Arg: File Descriptor (stdout)
 mov rsi, buffer   ; 2nd Arg: Address of data
 mov rdx, 11       ; 3rd Arg: Count of bytes
 syscall           ; Execute
+
+
+
+
+
+###########################################################################
+
+
+## The Code
+```nasm
+global _start ; this is start point
+
+section .text ; text section where code is written
+
+_start:  ;code start here
+    ; --- PRINT HELLO WORLD ---
+    mov rax, 1        ; System call number for 'write'
+    mov rdi, 1        ; File descriptor 1 (stdout/terminal)
+    mov rsi, hello    ; Memory address of our string
+    mov rdx, 11       ; Number of bytes to write
+    syscall           ; Transfer control to the kernel
+
+    ; --- EXIT PROGRAM ---
+    mov rax, 60       ; System call number for 'exit'
+    mov rdi, 0        ; Return status 0 (no errors)
+    syscall           ; Transfer control to the kernel
+
+section .data ; this is where variable are made 
+    hello: db "hello world"  ;name: (type(default byte)) " string here"
