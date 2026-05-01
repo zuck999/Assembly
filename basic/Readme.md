@@ -24,9 +24,7 @@ In 64-bit Linux, the kernel expects arguments to be placed in specific registers
 
 ---
 
-### How it looks in Code
-```nasm
-; Example: Writing to the terminal
+; this are the arguments of syscall (system calls)
 mov rax, 1        ; System Call ID (write)
 mov rdi, 1        ; 1st Arg: File Descriptor (stdout)
 mov rsi, buffer   ; 2nd Arg: Address of data
