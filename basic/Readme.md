@@ -1,5 +1,5 @@
 # Hello World Assembly (x86_64)
-
+That specific code is 64-bit architecture (also known as x86_64 or AMD64).
 This project explains how to interface directly with the Linux Kernel using Assembly language.
 
 ---
